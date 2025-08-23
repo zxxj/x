@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from 'prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
 import { User } from '@prisma/client';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -9,13 +9,13 @@ export class UserService {
   constructor(private readonly prismaService: PrismaService) {}
 
   // 创建用户
-  async create(dto: CreateUserDto): Promise<User> {
+  async create(dto: CreateUserDto): Promise<string> {
     const hashedPassword: string = await bcrypt.hash(dto.password, 10);
 
     try {
       dto.password = hashedPassword;
-      const user = this.prismaService.user.create({ data: dto });
-      return user;
+      await this.prismaService.user.create({ data: dto });
+      return '注册成功';
     } catch (error: unknown) {
       if (error instanceof Error) {
         throw new Error(`用户创建失败!${error.message}`);
@@ -24,9 +24,9 @@ export class UserService {
     }
   }
 
-  // 根据邮箱查找用户
-  async findUserByEmail(email: string): Promise<User | null> {
-    return this.prismaService.user.findUnique({ where: { email } });
+  // 根据用户名查找用户
+  async findUserByUsername(username: string): Promise<User | null> {
+    return this.prismaService.user.findUnique({ where: { username } });
   }
 
   // 根据ID查找用户
@@ -35,8 +35,8 @@ export class UserService {
   }
 
   // 验证用户是否存在与密码是否正确
-  async validateUser(email: string, password: string): Promise<User | null> {
-    const user = await this.findUserByEmail(email);
+  async validateUser(username: string, password: string): Promise<User | null> {
+    const user = await this.findUserByUsername(username);
 
     if (!user) return null;
 
