@@ -20,7 +20,7 @@ export class UserService {
       if (error instanceof Error) {
         throw new Error(`用户创建失败!${error.message}`);
       }
-      throw new Error(`用户创建失败,未知错误!$`);
+      throw new Error(`用户创建失败,未知错误!`);
     }
   }
 
