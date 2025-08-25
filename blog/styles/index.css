@@ -5,20 +5,26 @@
 
 /* 整个滚动条 */
 ::-webkit-scrollbar {
-  width: 8px;   /* 滚动条宽度 */
-  height: 8px;  /* 横向滚动条高度 */
+  width: 8px;
+  /* 滚动条宽度 */
+  height: 8px;
+  /* 横向滚动条高度 */
 }
 
 /* 滚动条轨道 */
 ::-webkit-scrollbar-track {
-  background: transparent; /* 背景透明，或者你也可以设置其他颜色 */
+  background: transparent;
+  /* 背景透明，或者你也可以设置其他颜色 */
 }
 
 /* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
-  background-color: #171717;   /* 滑块颜色改成白色 */
-  border-radius: 9999px;     /* 圆角 */
-  border: 2px solid transparent; /* 可让滑块更细，看起来更优雅 */
+  background-color: #171717;
+  /* 滑块颜色改成白色 */
+  border-radius: 9999px;
+  /* 圆角 */
+  border: 2px solid transparent;
+  /* 可让滑块更细，看起来更优雅 */
 }
 
 @theme inline {
@@ -132,7 +138,13 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.ant-segmented-item-label {
+  display: flex !important;
+  align-items: center;
 }

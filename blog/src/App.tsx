@@ -15,7 +15,7 @@ const App = () => {
 
       <Header />
 
-      <div className="mt-[90px] mx-28 h-full">
+      <div className="mt-[90px] mx-5 2xl:mx-28 lg:mx-20 h-full">
         <Router />
       </div>
     </div>
