@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Segmented } from 'antd';
 import { HomeIcon, ClipboardDocumentListIcon, UserIcon } from '@heroicons/react/24/solid'
+import { HomeIcon as HomeOutlineIcon, ClipboardDocumentListIcon as OutlineClipboardDocumentListIcon, UserIcon as OutlineUserIcon } from '@heroicons/react/24/outline'
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [value, setValue] = useState(location.pathname);
+  const iconWidth = 20
+  const iconHeight = 20
 
   const handleClick = async (path: string) => {
     setValue(path)
@@ -22,9 +25,9 @@ const Header: React.FC = () => {
           shape="round"
           value={value}
           options={[
-            { value: '/home', label: '首页', icon: <HomeIcon width={20} height={20} /> },
-            { value: '/article', label: '文章', icon: <ClipboardDocumentListIcon width={20} height={20} /> },
-            { value: '/about', label: '关于', icon: <UserIcon width={20} height={20} /> },
+            { value: '/home', label: '首页', icon: value === '/home' ? <HomeIcon width={iconWidth} height={iconHeight} /> : <HomeOutlineIcon width={iconWidth} height={iconHeight} /> },
+            { value: '/article', label: '文章', icon: value === '/article' ? <ClipboardDocumentListIcon width={iconWidth} height={iconHeight} /> : <OutlineClipboardDocumentListIcon width={iconWidth} height={iconHeight} /> },
+            { value: '/about', label: '关于', icon: value === '/about' ? <UserIcon width={iconWidth} height={iconHeight} /> : <OutlineUserIcon width={iconWidth} height={iconHeight} /> },
           ]}
           onChange={(val) => handleClick(val as string)}
         />
