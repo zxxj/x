@@ -1,4 +1,9 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateArticleDto } from './create-article.dto';
+import { IsNotEmpty } from 'class-validator';
 
-export class UpdateArticleDto extends PartialType(CreateArticleDto) {}
+export class UpdateArticleDto {
+  @IsNotEmpty({ message: '文章标题不能为空!' })
+  title: string;
+
+  @IsNotEmpty({ message: '文章内容不能为空!' })
+  content: string;
+}
