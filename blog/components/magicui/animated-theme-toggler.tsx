@@ -12,11 +12,15 @@ export const AnimatedThemeToggler = ({ className }: Props) => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
-    // 初始化时检查 localStorage
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+    if (savedTheme === 'light') {
+      document.documentElement.classList.remove('dark');
+      setIsDarkMode(false);
+    } else {
+      // 默认 dark
       document.documentElement.classList.add('dark');
       setIsDarkMode(true);
+      localStorage.setItem('theme', 'dark');
     }
   }, []);
 

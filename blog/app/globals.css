@@ -123,6 +123,7 @@
 /* 隐藏默认浏览器光标 */
 * {
   cursor: none !important;
+  box-sizing: border-box;
 }
 
 /* 保留文本光标以进行输入 */

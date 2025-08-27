@@ -15,7 +15,7 @@ export default function RootLayout({
         <title>x</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
-      <body className="w-screen h-screen overflow-x-hidden relative">
+      <body className="w-full h-full">
         {/* 背景固定，不随滚动 */}
         <AnimatedGridPattern className="fixed inset-0 w-full h-full z-0" />
 
