@@ -1,8 +1,9 @@
 import './globals.css';
 import { SmoothCursor } from '@/components/ui/smooth-cursor';
 import Header from '@/components/common/header';
-import { AnimatedGridPattern } from '@/components/magicui/animated-grid-pattern';
 import Footer from '@/components/common/footer';
+import { AnimatedGridPattern } from '@/components/magicui/animated-grid-pattern';
+import { ScrollProgress } from '@/components/magicui/scroll-progress';
 
 export default function RootLayout({
   children,
@@ -21,6 +22,9 @@ export default function RootLayout({
 
         {/* 光标 */}
         <SmoothCursor />
+
+        {/* 进度条 */}
+        <ScrollProgress />
 
         {/* 内容 */}
         <div>
