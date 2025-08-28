@@ -8,7 +8,9 @@ import { Highlighter } from '@/components/magicui/highlighter';
 import { TextReveal } from '@/components/magicui/text-reveal';
 import { ArcTimeline } from '@/components/magicui/arc-timeline';
 
-export default function Page() {
+const Page = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const data = [
     {
       time: '2025',
@@ -25,6 +27,7 @@ export default function Page() {
       steps: [{ icon: <span>📈</span>, content: 'Growth' }],
     },
   ];
+
   return (
     <div className="relative z-[30] w-full h-full">
       <div className="flex justify-center items-center mt-[20px]">
@@ -84,7 +87,7 @@ export default function Page() {
 
           <AnimatedSpan>🙋‍♂️ 感谢你的访问!</AnimatedSpan>
 
-          <TypingAnimation className="text-muted-foreground text-left ml-[100px]  lg:ml-[650px]">
+          <TypingAnimation className="text-muted-foreground text-left ml-[200px]  lg:ml-[650px]">
             zhangxinxin 2025.8.21
           </TypingAnimation>
         </Terminal>
@@ -103,4 +106,6 @@ export default function Page() {
       </div>
     </div>
   );
-}
+};
+
+export default Page;

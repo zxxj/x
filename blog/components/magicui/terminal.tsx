@@ -218,7 +218,6 @@ export const Terminal = ({
   const wrappedChildren = useMemo(() => {
     if (!sequence) return children;
     const array = Children.toArray(children);
-    console.log(array);
     return array.map((child, index) => (
       <ItemIndexContext.Provider key={index} value={index}>
         {child as React.ReactNode}
