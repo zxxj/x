@@ -183,6 +183,16 @@ const Marquee3D = () => {
             <ReviewCard key={review.username} {...review} />
           ))}
         </Marquee>
+        <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
+          {thirdRow.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
+        <Marquee pauseOnHover className="[--duration:20s]" vertical>
+          {fourthRow.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>

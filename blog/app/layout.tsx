@@ -4,6 +4,7 @@ import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
 import { AnimatedGridPattern } from '@/components/magicui/animated-grid-pattern';
 import { ScrollProgress } from '@/components/magicui/scroll-progress';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function RootLayout({
   children,
@@ -19,6 +20,9 @@ export default function RootLayout({
       <body className="w-full h-full">
         {/* 背景固定，不随滚动 */}
         <AnimatedGridPattern className="fixed inset-0 w-full h-full z-0" />
+
+        {/* 骨架 */}
+        <Skeleton />
 
         {/* 光标 */}
         <SmoothCursor />
