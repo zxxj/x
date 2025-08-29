@@ -30,7 +30,7 @@ const Page = async () => {
 
   return (
     <div className="relative z-[30] w-full h-full">
-      <div className="flex justify-center items-center mt-[20px]">
+      <div className="flex justify-center items-center mt-[20px] px-16">
         <p>
           Small improvements{' '}
           <Highlighter action="underline" color="#FF9800">
@@ -87,13 +87,13 @@ const Page = async () => {
 
           <AnimatedSpan>🙋‍♂️ 感谢你的访问!</AnimatedSpan>
 
-          <TypingAnimation className="text-muted-foreground text-left ml-[200px]  lg:ml-[650px]">
+          <TypingAnimation className="text-muted-foreground text-left ml-[170px]  lg:ml-[650px]">
             zhangxinxin 2025.8.21
           </TypingAnimation>
         </Terminal>
       </div>
 
-      <div className="w-full h-full mt-14 px-5 md:px-5 lg:px-0">
+      <div className="w-full h-full mt-8 ">
         <Marquee3D />
       </div>
 

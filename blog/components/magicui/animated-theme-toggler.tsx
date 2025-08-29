@@ -17,7 +17,6 @@ export const AnimatedThemeToggler = ({ className }: Props) => {
       document.documentElement.classList.remove('dark');
       setIsDarkMode(false);
     } else {
-      // 默认 dark
       document.documentElement.classList.add('dark');
       setIsDarkMode(true);
       localStorage.setItem('theme', 'dark');
@@ -27,36 +26,44 @@ export const AnimatedThemeToggler = ({ className }: Props) => {
   const changeTheme = async () => {
     if (!buttonRef.current) return;
 
-    await document.startViewTransition(() => {
-      flushSync(() => {
-        const dark = document.documentElement.classList.toggle('dark');
-        setIsDarkMode(dark);
-        localStorage.setItem('theme', dark ? 'dark' : 'light');
-      });
-    }).ready;
-
     const { top, left, width, height } =
       buttonRef.current.getBoundingClientRect();
-    const y = top + height / 2;
     const x = left + width / 2;
-
+    const y = top + height / 2;
     const right = window.innerWidth - left;
     const bottom = window.innerHeight - top;
     const maxRad = Math.hypot(Math.max(left, right), Math.max(top, bottom));
 
-    document.documentElement.animate(
-      {
-        clipPath: [
-          `circle(0px at ${x}px ${y}px)`,
-          `circle(${maxRad}px at ${x}px ${y}px)`,
-        ],
-      },
-      {
-        duration: 700,
-        easing: 'ease-in-out',
-        pseudoElement: '::view-transition-new(root)',
-      },
-    );
+    if ((document as any).startViewTransition) {
+      const transition = (document as any).startViewTransition(() => {
+        flushSync(() => {
+          const dark = document.documentElement.classList.toggle('dark');
+          setIsDarkMode(dark);
+          localStorage.setItem('theme', dark ? 'dark' : 'light');
+        });
+      });
+
+      transition.ready.then(() => {
+        document.documentElement.animate(
+          {
+            clipPath: [
+              `circle(0px at ${x}px ${y}px)`,
+              `circle(${maxRad}px at ${x}px ${y}px)`,
+            ],
+          },
+          {
+            duration: 700,
+            easing: 'ease-in-out',
+            pseudoElement: '::view-transition-new(root)',
+          },
+        );
+      });
+    } else {
+      // ❌ 不支持时只能瞬间切换
+      const dark = document.documentElement.classList.toggle('dark');
+      setIsDarkMode(dark);
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    }
   };
 
   return (
