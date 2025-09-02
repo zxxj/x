@@ -7,26 +7,31 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import Link from 'next/link';
 
 interface ArticleProps {
+  id: number;
   title: string;
   content: string;
   authorId: number;
 }
 
-const ArticleCard = ({ title, content, authorId }: ArticleProps) => {
+const ArticleCard = ({ id, title, content, authorId }: ArticleProps) => {
   return (
-    <Card className="p-0 w-full shadow-none border-none">
-      <MagicCard gradientColor={'#D9D9D955'} className="p-0 w-full">
-        <CardHeader className="border-b border-border p-4 [.border-b]:pb-4">
-          <CardTitle>{title}</CardTitle>
-          <CardDescription>{content}</CardDescription>
-        </CardHeader>
-        {/* <CardContent className="p-4"></CardContent> */}
-        {/* <CardFooter className="p-4 border-t border-border [.border-t]:pt-4">
+    <Link href={`/article/${id}`}>
+      <Card className="p-0 w-full shadow-none border-none my-5 h-[100px]">
+        <MagicCard gradientColor={'#D9D9D955'} className="p-0 w-full h-full">
+          <CardHeader className="border-b border-border p-4 [.border-b]:pb-4">
+            <CardTitle>{title}</CardTitle>
+          </CardHeader>
+          <CardDescription className="pl-5 pt-2.5">{content}</CardDescription>
+
+          {/* <CardContent className="p-4"></CardContent> */}
+          {/* <CardFooter className="p-4 border-t border-border [.border-t]:pt-4">
         </CardFooter> */}
-      </MagicCard>
-    </Card>
+        </MagicCard>
+      </Card>
+    </Link>
   );
 };
 

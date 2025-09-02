@@ -9,7 +9,7 @@ import { TextReveal } from '@/components/magicui/text-reveal';
 import { ArcTimeline } from '@/components/magicui/arc-timeline';
 
 const Page = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   const data = [
     {
