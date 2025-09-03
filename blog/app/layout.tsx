@@ -5,6 +5,7 @@ import Footer from '@/components/common/footer';
 import { AnimatedGridPattern } from '@/components/magicui/animated-grid-pattern';
 import { ScrollProgress } from '@/components/magicui/scroll-progress';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Toaster } from '@/components/ui/sonner';
 
 export default function RootLayout({
   children,
@@ -25,10 +26,13 @@ export default function RootLayout({
         <Skeleton />
 
         {/* 光标 */}
-        <SmoothCursor />
+        {/* <SmoothCursor /> */}
 
         {/* 进度条 */}
         <ScrollProgress />
+
+        {/* sonner */}
+        <Toaster position="top-center" />
 
         {/* 内容 */}
         <div>

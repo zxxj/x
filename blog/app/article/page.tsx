@@ -1,4 +1,5 @@
 import ArticleCard from './card';
+import TargetCursor from '@/components/TargetCursor';
 
 interface ArticleProps {
   id: number;
@@ -17,6 +18,7 @@ const Article = async () => {
   const articleList: ArticleProps[] = await articles.json();
   return (
     <div className="w-full h-full">
+      <TargetCursor spinDuration={2} hideDefaultCursor={true} />
       <div className="flex justify-between w-full">
         <div className="bg-amber-500 w-[15%] hidden lg:block xl:block 2xl:block">
           1

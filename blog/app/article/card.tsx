@@ -1,4 +1,5 @@
 import { MagicCard } from '@/components/magicui/magic-card';
+
 import {
   Card,
   CardContent,
@@ -19,7 +20,7 @@ interface ArticleProps {
 const ArticleCard = ({ id, title, content, authorId }: ArticleProps) => {
   return (
     <Link href={`/article/${id}`}>
-      <Card className="p-0 w-full shadow-none border-none my-5 h-[100px]">
+      <Card className="p-0 w-full shadow-none border-none my-5 h-[100px] cursor-target">
         <MagicCard gradientColor={'#D9D9D955'} className="p-0 w-full h-full">
           <CardHeader className="border-b border-border p-4 [.border-b]:pb-4">
             <CardTitle>{title}</CardTitle>
