@@ -18,12 +18,12 @@ const Article = async () => {
   const articleList: ArticleProps[] = await articles.json();
   return (
     <div className="w-full h-full">
-      <TargetCursor spinDuration={2} hideDefaultCursor={true} />
-      <div className="flex justify-between w-full">
-        <div className="bg-amber-500 w-[15%] hidden lg:block xl:block 2xl:block">
+      <div className="flex justify-between w-full ">
+        <div className="bg-amber-500 w-[15%] hidden lg:block xl:block 2xl:block z-[50]">
           1
         </div>
-        <div className=" flex-1 mx-5">
+        <div className=" relative flex-1 mx-5 overflow-hidden">
+          <TargetCursor spinDuration={2} hideDefaultCursor={true} />
           {articleList.map((item) => (
             <ArticleCard
               key={item.id}
@@ -34,7 +34,7 @@ const Article = async () => {
             />
           ))}
         </div>
-        <div className="bg-emerald-600 w-[15%] hidden lg:block xl:block 2xl:block">
+        <div className="bg-emerald-600 w-[15%] hidden lg:block xl:block 2xl:block  z-[50]">
           3
         </div>
       </div>

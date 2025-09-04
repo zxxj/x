@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   const [visible, setVisible] = useState<boolean>(false);
 
   return (
-    <div className="w-full h-20 fixed z-[40] px-4 sm:px-10 lg:px-40 bg-white dark:bg-[#0a0a0a] flex justify-between items-center border-b-[1px] border-b-[#e5e5e5]  dark:border-[#222323]">
+    <div className="w-full h-20 fixed z-[999] px-4 sm:px-10 lg:px-40 bg-white dark:bg-[#0a0a0a] flex justify-between items-center border-b-[1px] border-b-[#e5e5e5]  dark:border-[#222323]">
       <div className="flex h-full items-center">
         <Image
           className="dark:hidden block sm:w-16 sm:h-16"

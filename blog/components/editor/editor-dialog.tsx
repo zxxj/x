@@ -601,22 +601,25 @@ const EditorDialog = ({ visible, onVisibleChange }: EditorDialogProps) => {
       toast.warning('请先登录.');
       setShowLoginDialog(true);
     }
+
+    console.log(value);
   };
 
   return (
     <Dialog open={visible} onOpenChange={onVisibleChange}>
       <DialogContent
         onInteractOutside={(e) => e.preventDefault()}
-        className=" !max-w-[90%] h-[800px]"
+        className=" !max-w-[90%] h-[90%] lg:h-[800px] z-[1000]"
       >
         <DialogHeader>
           <DialogTitle>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-between items-center">
+              <div>创建文章</div>
               <ShimmerButton
-                className="!text-white text-[14px] mr-[50px]"
+                className="!text-white text-[14px] mr-[20px] lg:mr-[50px]"
                 onClick={handlePush}
               >
-                发布文章
+                发布
               </ShimmerButton>
             </div>
           </DialogTitle>
