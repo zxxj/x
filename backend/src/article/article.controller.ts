@@ -27,7 +27,6 @@ export class ArticleController {
     return this.articleService.create(Number(userId), createArticleDto);
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get()
   findAll(
     @Query('pageNumber') pageNumber = 1,
@@ -36,7 +35,6 @@ export class ArticleController {
     return this.articleService.findAll(pageNumber, pageSize);
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.articleService.findOne(Number(id));

@@ -20,6 +20,7 @@ export class ArticleService {
       await this.prismaService.article.create({
         data: {
           title: createArticleDto.title,
+          description: createArticleDto.description,
           content: createArticleDto.content,
           authorId: userId,
         },

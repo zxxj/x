@@ -1,4 +1,4 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateArticleDto {
   @IsNotEmpty({ message: '文章标题不能为空!' })
@@ -6,4 +6,7 @@ export class CreateArticleDto {
 
   @IsNotEmpty({ message: '文章内容不能为空!' })
   content: string;
+
+  @IsOptional()
+  description?: string;
 }
