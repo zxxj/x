@@ -13,11 +13,18 @@ import Link from 'next/link';
 interface ArticleProps {
   id: number;
   title: string;
+  description?: string;
   content: string;
   authorId: number;
 }
 
-const ArticleCard = ({ id, title, content, authorId }: ArticleProps) => {
+const ArticleCard = ({
+  id,
+  title,
+  description,
+  content,
+  authorId,
+}: ArticleProps) => {
   return (
     <Link href={`/article/${id}`}>
       <Card className="p-0 w-full shadow-none border-none my-5 h-[100px] cursor-target">
@@ -25,7 +32,9 @@ const ArticleCard = ({ id, title, content, authorId }: ArticleProps) => {
           <CardHeader className="border-b border-border p-4 [.border-b]:pb-4">
             <CardTitle>{title}</CardTitle>
           </CardHeader>
-          <CardDescription className="pl-5 pt-2.5">{content}</CardDescription>
+          <CardDescription className="pl-5 pt-2.5">
+            {description}
+          </CardDescription>
 
           {/* <CardContent className="p-4"></CardContent> */}
           {/* <CardFooter className="p-4 border-t border-border [.border-t]:pt-4">

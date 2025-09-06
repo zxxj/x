@@ -4,6 +4,7 @@ import TargetCursor from '@/components/TargetCursor';
 interface ArticleProps {
   id: number;
   title: string;
+  description: string;
   content: string;
   authorId: number;
   createdAt: Date;
@@ -29,6 +30,7 @@ const Article = async () => {
               key={item.id}
               id={item.id}
               title={item.title}
+              description={item.description}
               content={item.content}
               authorId={item.authorId}
             />

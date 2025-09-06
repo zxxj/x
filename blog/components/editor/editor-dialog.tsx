@@ -15,6 +15,8 @@ import { getLocal } from '@/hooks/use-local';
 import { toast } from 'sonner';
 import LoginDialog from '@/components/login-dialog';
 import { useState } from 'react';
+import { create } from '@/app/api/article';
+import { Loader2Icon } from 'lucide-react';
 
 interface EditorDialogProps {
   visible: boolean;
@@ -23,6 +25,7 @@ interface EditorDialogProps {
 
 const EditorDialog = ({ visible, onVisibleChange }: EditorDialogProps) => {
   const [showLoginDialog, setShowLoginDialog] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
 
   const value = normalizeNodeId([
     {
@@ -594,15 +597,31 @@ const EditorDialog = ({ visible, onVisibleChange }: EditorDialogProps) => {
     value,
   });
 
-  const handlePush = () => {
+  const handlePush = async () => {
+    setLoading(true);
     const token = getLocal('token');
 
     if (!token) {
       toast.warning('请先登录.');
       setShowLoginDialog(true);
+    } else {
+      try {
+        const values = {
+          title: '测试title2',
+          description: '测试描述1',
+          content: JSON.stringify(value),
+        };
+
+        await create(values);
+        onVisibleChange(false);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
     }
 
-    console.log(value);
+    setLoading(false);
   };
 
   return (
@@ -619,6 +638,7 @@ const EditorDialog = ({ visible, onVisibleChange }: EditorDialogProps) => {
                 className="!text-white text-[14px] mr-[20px] lg:mr-[50px]"
                 onClick={handlePush}
               >
+                {isLoading && <Loader2Icon className="animate-spin" />}
                 发布
               </ShimmerButton>
             </div>
