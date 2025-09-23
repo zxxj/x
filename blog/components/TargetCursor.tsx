@@ -1,5 +1,6 @@
 'use client';
-
+// eslint-disable-next-line prefer-const
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 import { gsap } from 'gsap';
 

@@ -88,7 +88,7 @@ export function BlockSuggestion({ element }: { element: TSuggestionElement }) {
     <div
       className={cn(
         'pointer-events-none absolute inset-0 z-1 border-2 border-brand/[0.8] transition-opacity',
-        isRemove && 'border-gray-300',
+        isRemove && 'border-gray-300'
       )}
       contentEditable={false}
     />
@@ -185,7 +185,7 @@ export function BlockSuggestionCard({
                         {text || 'line breaks'}
                       </span>
                     </div>
-                  ),
+                  )
                 )}
               </React.Fragment>
             )}
@@ -203,7 +203,7 @@ export function BlockSuggestionCard({
                         <span className="text-sm">{text || 'line breaks'}</span>
                       </div>
                     </React.Fragment>
-                  ),
+                  )
                 )}
 
                 {suggestionText2Array(suggestion.text!).map((text, index) => (
@@ -280,7 +280,7 @@ export function BlockSuggestionCard({
 
 export const useResolveSuggestion = (
   suggestionNodes: NodeEntry<TElement | TSuggestionText>[],
-  blockPath: Path,
+  blockPath: Path
 ) => {
   const discussions = usePluginOption(discussionPlugin, 'discussions');
 
@@ -325,7 +325,7 @@ export const useResolveSuggestion = (
           if (TextApi.isText(node)) {
             const dataList = api.suggestion.dataList(node);
             const includeUpdate = dataList.some(
-              (data) => data.type === 'update',
+              (data) => data.type === 'update'
             );
 
             if (!includeUpdate) return api.suggestion.nodeId(node);
@@ -338,7 +338,7 @@ export const useResolveSuggestion = (
             return api.suggestion.nodeId(node);
           }
         })
-        .filter(Boolean),
+        .filter(Boolean)
     );
 
     const res: ResolvedSuggestion[] = [];
@@ -502,7 +502,7 @@ export const useResolveSuggestion = (
 };
 
 export const isResolvedSuggestion = (
-  suggestion: ResolvedSuggestion | TDiscussion,
+  suggestion: ResolvedSuggestion | TDiscussion
 ): suggestion is ResolvedSuggestion => {
   return 'suggestionId' in suggestion;
 };

@@ -45,5 +45,5 @@ export const FileElement = withHOC(
         {props.children}
       </PlateElement>
     );
-  },
+  }
 );

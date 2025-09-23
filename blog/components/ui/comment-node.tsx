@@ -32,7 +32,7 @@ export function CommentLeaf(props: PlateLeafProps<TCommentText>) {
         isOverlapping && 'border-b-2 border-b-highlight/[.7] bg-highlight/25',
         (isHover || isActive) &&
           isOverlapping &&
-          'border-b-highlight bg-highlight/45',
+          'border-b-highlight bg-highlight/45'
       )}
       attributes={{
         ...props.attributes,

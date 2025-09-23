@@ -48,7 +48,7 @@ export const ColumnElement = withHOC(
     const readOnly = useReadOnly();
     const isSelectionAreaVisible = usePluginOption(
       BlockSelectionPlugin,
-      'isSelectionAreaVisible',
+      'isSelectionAreaVisible'
     );
 
     const { isDragging, previewRef, handleRef } = useDraggable({
@@ -58,7 +58,7 @@ export const ColumnElement = withHOC(
       canDropNode: ({ dragEntry, dropEntry }) =>
         PathApi.equals(
           PathApi.parent(dragEntry[1]),
-          PathApi.parent(dropEntry[1]),
+          PathApi.parent(dropEntry[1])
         ),
     });
 
@@ -70,7 +70,7 @@ export const ColumnElement = withHOC(
             className={cn(
               'absolute top-2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2',
               'pointer-events-auto flex items-center',
-              'opacity-0 transition-opacity group-hover/column:opacity-100',
+              'opacity-0 transition-opacity group-hover/column:opacity-100'
             )}
           >
             <ColumnDragHandle />
@@ -86,7 +86,7 @@ export const ColumnElement = withHOC(
             className={cn(
               'relative h-full border border-transparent p-1.5',
               !readOnly && 'rounded-lg border-dashed border-border',
-              isDragging && 'opacity-50',
+              isDragging && 'opacity-50'
             )}
           >
             {props.children}
@@ -96,7 +96,7 @@ export const ColumnElement = withHOC(
         </PlateElement>
       </div>
     );
-  },
+  }
 );
 
 const ColumnDragHandle = React.memo(function ColumnDragHandle() {
@@ -134,7 +134,7 @@ function DropLine() {
         dropLine === 'left' &&
           'inset-y-0 left-[-10.5px] w-1 group-first/column:-left-1',
         dropLine === 'right' &&
-          'inset-y-0 right-[-11px] w-1 group-last/column:-right-1',
+          'inset-y-0 right-[-11px] w-1 group-last/column:-right-1'
       )}
     />
   );
@@ -158,7 +158,7 @@ function ColumnFloatingToolbar({ children }: React.PropsWithChildren) {
   const selected = useSelected();
   const isCollapsed = useEditorSelector(
     (editor) => editor.api.isCollapsed(),
-    [],
+    []
   );
   const isFocusedLast = useFocusedLast();
 

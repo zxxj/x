@@ -29,7 +29,7 @@ import {
 export function MentionElement(
   props: PlateElementProps<TMentionElement> & {
     prefix?: string;
-  },
+  }
 ) {
   const element = props.element;
 
@@ -47,7 +47,7 @@ export function MentionElement(
         selected && focused && 'ring-2 ring-ring',
         element.children[0][KEYS.bold] === true && 'font-bold',
         element.children[0][KEYS.italic] === true && 'italic',
-        element.children[0][KEYS.underline] === true && 'underline',
+        element.children[0][KEYS.underline] === true && 'underline'
       )}
       attributes={{
         ...props.attributes,
@@ -78,7 +78,7 @@ export function MentionElement(
 const onSelectItem = getMentionOnSelectItem();
 
 export function MentionInputElement(
-  props: PlateElementProps<TComboboxInputElement>,
+  props: PlateElementProps<TComboboxInputElement>
 ) {
   const { editor, element } = props;
   const [search, setSearch] = React.useState('');

@@ -21,7 +21,7 @@ export function DateElement(props: PlateElementProps<TDateElement>) {
   const trigger = (
     <span
       className={cn(
-        'w-fit cursor-pointer rounded-sm bg-muted px-1 text-muted-foreground',
+        'w-fit cursor-pointer rounded-sm bg-muted px-1 text-muted-foreground'
       )}
       contentEditable={false}
       draggable
@@ -81,7 +81,7 @@ export function DateElement(props: PlateElementProps<TDateElement>) {
 
               editor.tf.setNodes(
                 { date: date.toDateString() },
-                { at: element },
+                { at: element }
               );
             }}
             mode="single"

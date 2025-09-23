@@ -140,7 +140,7 @@ export function Comment(props: {
       id: comment.id,
       value: initialValue,
     },
-    [initialValue],
+    [initialValue]
   );
 
   const onCancel = () => {
@@ -322,7 +322,7 @@ function CommentMoreDropdown(props: {
         }
 
         const commentIndex = discussion.comments.findIndex(
-          (c) => c.id === comment.id,
+          (c) => c.id === comment.id
         );
         if (commentIndex === -1) {
           return discussion;
@@ -390,7 +390,7 @@ function CommentMoreDropdown(props: {
 
 const useCommentEditor = (
   options: Omit<CreatePlateEditorOptions, 'plugins'> = {},
-  deps: any[] = [],
+  deps: any[] = []
 ) => {
   const commentEditor = usePlateEditor(
     {
@@ -399,7 +399,7 @@ const useCommentEditor = (
       value: [],
       ...options,
     },
-    deps,
+    deps
   );
 
   return commentEditor;
@@ -429,7 +429,7 @@ export function CommentCreateForm({
       commentValue
         ? NodeApi.string({ children: commentValue, type: KEYS.p })
         : '',
-    [commentValue],
+    [commentValue]
   );
   const commentEditor = useCommentEditor();
 
@@ -541,7 +541,7 @@ export function CommentCreateForm({
         {
           [getCommentKey(id)]: true,
         },
-        { at: path, split: true },
+        { at: path, split: true }
       );
       editor.tf.unsetNodes([getDraftCommentKey()], { at: path });
     });

@@ -51,7 +51,7 @@ export const ImageElement = withHOC(
                   'block w-full max-w-full cursor-pointer object-cover px-0',
                   'rounded-sm',
                   focused && selected && 'ring-2 ring-ring ring-offset-2',
-                  isDragging && 'opacity-50',
+                  isDragging && 'opacity-50'
                 )}
                 alt={props.attributes.alt as string | undefined}
               />
@@ -78,5 +78,5 @@ export const ImageElement = withHOC(
         </PlateElement>
       </MediaToolbar>
     );
-  },
+  }
 );

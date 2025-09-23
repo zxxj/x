@@ -7,3 +7,9 @@ export const create = (values: CreateType) => {
     body: JSON.stringify(values),
   });
 };
+
+export const queryById = (id: string) => {
+  request(`/article/${id}`, {
+    method: 'get',
+  });
+};

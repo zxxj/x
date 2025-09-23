@@ -643,10 +643,7 @@ const EditorDialog = ({ visible, onVisibleChange }: EditorDialogProps) => {
               </ShimmerButton>
             </div>
           </DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </DialogDescription>
+          <DialogDescription>up! up! up!!!</DialogDescription>
         </DialogHeader>
 
         <Plate editor={editor}>
