@@ -1,5 +1,6 @@
 import ArticleCard from './card';
 import TargetCursor from '@/components/TargetCursor';
+import { artcileList } from '../../data/list';
 
 interface ArticleProps {
   id: number;
@@ -20,12 +21,10 @@ const Article = async () => {
   return (
     <div className="w-full h-full">
       <div className="flex justify-between w-full ">
-        <div className="bg-amber-500 w-[15%] hidden lg:block xl:block 2xl:block z-[50]">
-          1
-        </div>
+        <div className=" w-[15%] hidden lg:block xl:block 2xl:block z-[50]"></div>
         <div className=" relative flex-1 mx-5 overflow-hidden">
           <TargetCursor spinDuration={2} hideDefaultCursor={true} />
-          {/* {articleList.map((item) => (
+          {artcileList.map((item) => (
             <ArticleCard
               key={item.id}
               id={item.id}
@@ -34,11 +33,9 @@ const Article = async () => {
               content={item.content}
               authorId={item.authorId}
             />
-          ))} */}
+          ))}
         </div>
-        <div className="bg-emerald-600 w-[15%] hidden lg:block xl:block 2xl:block  z-[50]">
-          3
-        </div>
+        <div className=" w-[15%] hidden lg:block xl:block 2xl:block  z-[50]"></div>
       </div>
     </div>
   );
