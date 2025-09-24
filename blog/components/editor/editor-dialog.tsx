@@ -15,7 +15,7 @@ import { getLocal } from '@/hooks/use-local';
 import { toast } from 'sonner';
 import LoginDialog from '@/components/login-dialog';
 import { useState } from 'react';
-import { create } from '@/app/api/article';
+// import { create } from '@/app/api/article';
 import { Loader2Icon } from 'lucide-react';
 
 interface EditorDialogProps {
@@ -612,7 +612,7 @@ const EditorDialog = ({ visible, onVisibleChange }: EditorDialogProps) => {
           content: JSON.stringify(value),
         };
 
-        await create(values);
+        // await create(values);
         onVisibleChange(false);
       } catch (error) {
         console.log(error);

@@ -15,8 +15,8 @@ interface ArticleProps {
 const Article = async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  const articles = await fetch('http://localhost:3001/article');
-  const articleList: ArticleProps[] = await articles.json();
+  // const articles = await fetch('http://localhost:3001/article');
+  // const articleList: ArticleProps[] = await articles.json();
   return (
     <div className="w-full h-full">
       <div className="flex justify-between w-full ">
@@ -25,7 +25,7 @@ const Article = async () => {
         </div>
         <div className=" relative flex-1 mx-5 overflow-hidden">
           <TargetCursor spinDuration={2} hideDefaultCursor={true} />
-          {articleList.map((item) => (
+          {/* {articleList.map((item) => (
             <ArticleCard
               key={item.id}
               id={item.id}
@@ -34,7 +34,7 @@ const Article = async () => {
               content={item.content}
               authorId={item.authorId}
             />
-          ))}
+          ))} */}
         </div>
         <div className="bg-emerald-600 w-[15%] hidden lg:block xl:block 2xl:block  z-[50]">
           3

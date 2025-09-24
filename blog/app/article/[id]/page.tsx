@@ -15,12 +15,12 @@ const Page = ({ params }: Props) => {
     const fetchArticle = async () => {
       try {
         setIsLoading(true);
-        const res = await fetch(`http://localhost:3001/article/${id}`, {
-          cache: 'no-store', // 不缓存，开发调试方便
-        });
-        const data = await res.json();
-        setArticleInfo(data);
-        setArtcileContent(JSON.parse(data.content));
+        // const res = await fetch(`http://localhost:3001/article/${id}`, {
+        //   cache: 'no-store', // 不缓存，开发调试方便
+        // });
+        // const data = await res.json();
+        // setArticleInfo(data);
+        // setArtcileContent(JSON.parse(data.content));
       } catch (error) {
         console.error('Failed to fetch article:', error);
       } finally {
